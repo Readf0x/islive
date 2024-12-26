@@ -14,6 +14,14 @@ func main() {
     fmt.Println("Not enough arguments!")
     os.Exit(2)
   }
+  if os.Args[1] == "-h" || os.Args[1] == "--help" {
+    fmt.Print("Simple program to check if a streamer is live.\n\n" +
+      "Usage: islive [CHANNEL]\n\n" +
+      "Arguments:\n" +
+      "\t[CHANNEL]\n" +
+      "\t\tChannel ID, e.g. `ottomated' or `caseoh_'\n")
+    os.Exit(0)
+  }
   channel := os.Args[1]
   resp, err := http.Get(fmt.Sprintf("https://twitch.tv/%s", channel))
   if err != nil {

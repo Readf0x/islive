@@ -23,6 +23,12 @@
 
             vendorHash = null;
 
+            postInstall = ''
+              mkdir -p $out/share/man/man1
+              cp manual/islive.1 $out/share/man/man1
+              gzip $out/share/man/man1/islive.1
+            '';
+
             meta = {
               description = "Check if a twitch streamer is live";
               mainProgram = "islive";
